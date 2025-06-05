@@ -45,14 +45,3 @@ jobs:
    
           
      
-
-  health:
-    needs: Build-test-deploy
-    runs-on: self-hosted
-
-    steps:
-      - name: Health check
-        run: |
-          for i in {1..10}; do
-            curl -s -o /dev/null -w "%{http_code}" $HEALTHCHECK_URL | grep "200" && echo "Health check passed" && exit 0 || echo "Waiting for service...";
-            sleep 5;
