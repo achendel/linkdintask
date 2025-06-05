@@ -17,8 +17,16 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.x
-
+    - name: Virtual env
+      run: |
+          sudo apt install python3.12-venv -y
+          python3 -m venv venv
+          source venv/bin/activate
+          
+    - name: Install Dependencies
+      run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
    
-
     - name: Run Hello World
       run: python app.py
