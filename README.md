@@ -11,6 +11,27 @@ Clone or pull the latest code from Codeberg
 Install dependencies
 Restart the app (or redeploy using Docker if preferred)
 
+CI/CD Pipeline with GitHub, Jenkins, and Docker for a Python Flask App
+I implemented a CI/CD pipeline for a Python Flask application using GitHub, Jenkins, and Docker.
+
+Version Control with GitHub
+The Flask application code is stored in a GitHub repository. Every change pushed to the repository serves as a trigger for the automated pipeline, ensuring continuous integration.
+
+CI/CD Automation using Jenkins
+Jenkins is configured on a virtual machine to automate the build and deployment process. A webhook connects GitHub to Jenkins, automatically triggering a Jenkins job on every code push.
+
+Containerization with Docker
+A Dockerfile is included in the project to containerize the Flask app. The Jenkins pipeline pulls the latest code, builds the Docker image, and runs the container exposing the app on a defined port.
+
+Pipeline Workflow
+
+Jenkins pulls code from GitHub.
+
+Installs dependencies listed in requirements.txt.
+
+Builds a Docker image using the Dockerfile.
+
+Runs the container, making the Flask app accessible.
 
 step 1: setup jenkins
 Install Jenkins:
@@ -40,4 +61,8 @@ step6: Freestyle Project
        Repo URL: https://github.com/achendel/codeberg_linkd.git
        Under Build Triggers
        Check GitHub hook trigger for GITScm polling
+step7: Create Docker file for python Flask application
+                                                         
+
+  
        
